@@ -1,0 +1,67 @@
+<ion-content>
+
+  <ion-icon [routerLink]="['/registrapp']" name="arrow-back-outline" style="font-size: 3.2rem; position: absolute;">
+  </ion-icon>
+
+  <div class="logo ion-text-center">
+    <span>R</span>
+    <span>e</span>
+    <span>g</span>
+    <span>i</span>
+    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span class="App">A</span>
+    <span class="App">P</span>
+    <span class="App">P</span>
+  </div>
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Asistencias Registradas</h1>
+      <p>
+        Podras ver los alumnos que han asistido a la clase
+      </p>
+
+
+      <div *ngFor="let cursos of cursosArray">
+        <div *ngFor="let clases of clasesArray">
+
+          <div *ngIf="cursos.Nombre == clases.cursoNombre">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{ clases.cursoNombre }}</ion-card-title>
+                <ion-card-subtitle>Clase del {{ clases.fecha }}</ion-card-subtitle>
+              </ion-card-header>
+
+
+              <ion-row>
+                <h6 style="margin-left: 15px;">
+                  Nombre
+                </h6>
+                <h6 style="position: absolute; right: 0; margin-right: 15px;">
+                  Asistio
+                </h6>
+              </ion-row>
+              <ion-card-content *ngFor="let alumno of cursos.Alumno" style="padding: 0; margin-left: 15px;">
+                <ion-row>
+                  <div>
+                    {{ alumno }}
+                  </div>
+                  <div *ngFor="let asistio of asistenciasArray">
+                    <div *ngIf="asistio.nombreAlumno == alumno && asistio.cursoNombre == clases.cursoNombre && asistio.fecha == clases.fecha" style="position: absolute; right: 0; margin-right: 15px;">
+                      Sí
+                    </div>
+                  </div>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</ion-content>

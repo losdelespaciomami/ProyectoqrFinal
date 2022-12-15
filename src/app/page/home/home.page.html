@@ -1,0 +1,42 @@
+<ion-content>
+  
+  <div class="logo ion-text-center">
+    <span>R</span>
+    <span>e</span>
+    <span>g</span>
+    <span>i</span>
+    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span class="App">A</span>
+    <span class="App">P</span>
+    <span class="App">P</span>
+  </div>
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Bienvenido a RegistrAPP</h1>
+      <p>Inicia sesión para continuar</p>
+    </div>
+    <div class="login-form ion-padding">
+      <div class="form-input">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="correo" [(ngModel)]="correo"></ion-input>
+        </ion-item>
+      </div>
+      <div class="form-input">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" name="password" [(ngModel)] ="password"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="action-button ion-padding">
+      <ion-button size="large" class="login-button" (click)="login()">Inicia sesión</ion-button>
+      <p [routerLink]="['/recuperarpassword']">Olvidé mi contraseña</p>
+    </div>
+  </div>
+</ion-content>

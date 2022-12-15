@@ -1,0 +1,58 @@
+<ion-content>
+  
+  <ion-icon [routerLink]="['/registrapp']" name="arrow-back-outline" style="font-size: 3.2rem; position: absolute;"></ion-icon>
+
+  <div class="logo ion-text-center">
+    <span>R</span>
+    <span>e</span>
+    <span>g</span>
+    <span>i</span>
+    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span class="App">A</span>
+    <span class="App">P</span>
+    <span class="App">P</span>
+  </div>
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Asistencias</h1>
+      <p>
+        Por reglamento académico tienes que tener un 
+        75% de asistencia en cada uno de tus 
+        ramos para aprobar el curso, 
+        en esta sección podrás revisar 
+        el avance y así no repetir por 
+        no ir a clases
+      </p>
+
+      <ion-accordion-group *ngFor="let curso of cursosArray">
+        <div *ngFor="let cursoAlumno of cursosAlumnoArray">
+          <ion-accordion value="first" *ngIf="curso.Nombre == cursoAlumno">
+            <ion-item slot="header" color="light">
+              <ion-label>{{ cursoAlumno }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <ion-row>
+                {{nombre}} asistió a {{ cursoAlumno }} los dias:
+                <div *ngFor="let asistencia of asistenciaArray">
+                  <div class="ion-padding" slot="content" *ngIf="asistencia.nombreAlumno == nombre && asistencia.cursoNombre == cursoAlumno">
+                    <ion-row>
+                      <div>
+                        {{ asistencia.fecha }}
+                      </div>
+                    </ion-row>
+                  </div>
+                </div>
+              </ion-row>
+            </div>
+          </ion-accordion>
+        </div>
+      </ion-accordion-group>
+
+    </div>
+  </div>
+
+
+</ion-content>

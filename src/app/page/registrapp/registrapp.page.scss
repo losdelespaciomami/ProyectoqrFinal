@@ -1,0 +1,90 @@
+ion-content{
+  --background: linear-gradient(to bottom, #00265f, #2459bb, #0a1b37, #061e4e, #00001d);
+}
+
+.logo{
+  margin-top: 75px;
+  span{
+    font-size: 4rem;
+    font-weight: bolder;
+  }
+  .App{
+    color: yellow;
+  }
+}
+
+.login-section{
+  height: 75vh;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  margin: auto;
+  border-top-right-radius: 46px;
+
+  ion-card{
+    text-align: center;
+  }
+
+  .heading{
+    margin-top: 20px;
+    h1{
+      font-size: 1.6rem;
+      font-weight: bolder;
+    }
+    p{
+      margin-top: 20px;
+      font-size: lrem;
+      color: #7b7b7b  ;
+    }
+  }
+
+  .login-form{
+    .form-input{
+      position: relative;
+      margin-bottom: 10px;
+      ion-item:part(native){
+        padding-left: 0;
+      }
+
+      ion-icon{
+        position: absolute;
+        top: 18px;
+        z-index: 2;
+        font-size: 1.7rem;
+        left: 5px;
+      }
+
+      ion-label{
+        position: absolute;
+        margin-left: 35px;
+        font-weight: bolder;
+        font-size: 0.8rem;
+        top: 3px;
+      }
+
+      ion-input{
+        font-size: 1.2rem;
+        --padding-start: 36px;
+        --padding-top:36px;
+        color: #939393; 
+      }
+    }
+  }
+  .action-button{
+    text-align: center;
+    .login-button{
+      --background: #f9b801;
+      color: rgb(249, 249, 249)  ;
+      width: 100%;
+      font-weight: bold;
+    }
+    p{
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #7b7b7b;
+    }
+  }
+}

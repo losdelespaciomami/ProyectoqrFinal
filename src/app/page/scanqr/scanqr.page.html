@@ -1,0 +1,117 @@
+<!-- New build -->
+<ion-content *ngIf="roles == 'Alumno'" [style.visibility]="content_visibility">
+  <ion-icon [routerLink]="['/registrapp']" name="arrow-back-outline" style="font-size: 3.2rem; position: absolute;"></ion-icon>
+  <div class="logo ion-text-center">
+    <span>R</span>
+    <span>e</span>
+    <span>g</span>
+    <span>i</span>
+    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span class="App">A</span>
+    <span class="App">P</span>
+    <span class="App">P</span>
+  </div>
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Registrar Asistencia</h1>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Por favor, pulse el botón de Escanear Código Qr</ion-card-title>
+      </ion-card-header>
+      <img src="..\..\assets\img\qr-code.png" alt="" style="height: 150px;">
+      <ion-card-content>
+        Escanea el código QR y registra tu asistencia
+      </ion-card-content>
+      <ion-button (click)="startScan()">Escanear Código Qr</ion-button>
+      <hr>
+    </ion-card>
+  </div>
+  
+</ion-content>
+
+
+
+
+
+<ion-content *ngIf="roles == 'Profesor' && eligioCurso == false">
+  <ion-icon [routerLink]="['/registrapp']" name="arrow-back-outline" style="font-size: 3.2rem; position: absolute;"></ion-icon>
+  <div class="logo ion-text-center">
+    <span>R</span>
+    <span>e</span>
+    <span>g</span>
+    <span>i</span>
+    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span class="App">A</span>
+    <span class="App">P</span>
+    <span class="App">P</span>
+  </div>
+
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Generar Código Qr</h1>
+      <p>Porfavor, seleccione un curso</p>
+    </div>
+
+    <div *ngFor="let curso of cursosArray">
+      <ion-card *ngIf="curso.Docente == nombre">
+        <ion-card-header>
+          <ion-item> 
+            <ion-input style="text-align: center; font-size: 20px;" (ionFocus)="datosQr($event)" value="{{ curso.Nombre }}" [readonly]="true"></ion-input>
+          </ion-item>
+        </ion-card-header>
+      </ion-card>
+    </div>
+    
+  </div>
+</ion-content>
+
+
+<ion-content *ngIf="roles == 'Profesor' && eligioCurso == true">
+  <ion-icon name="arrow-back-outline" style="font-size: 3.2rem; position: absolute;" (click)="borrarQr()"></ion-icon>
+  <div class="logo ion-text-center">
+    <span>R</span>
+    <span>e</span>
+    <span>g</span>
+    <span>i</span>
+    <span>s</span>
+    <span>t</span>
+    <span>r</span>
+    <span class="App">A</span>
+    <span class="App">P</span>
+    <span class="App">P</span>
+  </div>
+
+
+  <div class="login-section ion-padding">
+    <div class="heading ion-padding">
+      <h1>Creación de Código Qr</h1>
+    </div>
+
+    <ion-card >
+      <ion-card-header>
+        <ion-card-title>Generar Código QR</ion-card-title>
+      </ion-card-header>
+      
+      <div class="ion-text-center">
+        <div *ngIf="qrCreado == true">
+          <ngx-qrcode [elementType]="elementType" [value]='valores' *ngIf="logeado" [width]=450></ngx-qrcode>
+        </div>
+        <ion-button  *ngIf="qrCreado!=true" (click)="generarQr()">Generar</ion-button>
+      </div>
+      
+      <ion-card-content>
+        Genera un código QR para que tus alumnos registren su asistencia
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+
+</ion-content>
